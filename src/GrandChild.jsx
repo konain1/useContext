@@ -1,11 +1,17 @@
-import { useContext } from "react"
+import React, { useContext } from "react";
 
-import { userCont } from "./App"
-export function GrandChild(){
+export function GrandChild() {
 
-    const user = useContext(userCont)
+  const { setUser } = useContext(UserContext);
 
-    return <>
-        <h1>GrandChild  { user}</h1>
+  function dataHandler() { // Corrected typo
+    setUser('hello world');
+  }
+
+  return (
+    <>
+      <h1>GrandChild: {user}</h1>
+      <button onClick={dataHandler}>Set Data</button>
     </>
+  );
 }
