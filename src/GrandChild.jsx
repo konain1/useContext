@@ -1,17 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Appcontext from "./context/Appcontext";
 
-export function GrandChild() {
+function GrandChild() {
 
-  const { setUser } = useContext(UserContext);
+  const {setUser} = useContext(Appcontext);
+ const [newuser,setNewUser] = useState("")
+ 
+
 
   function dataHandler() { // Corrected typo
-    setUser('hello world');
+    setNewUser('doora')
+    setUser(newuser)
+   
   }
-
+  
   return (
     <>
-      <h1>GrandChild: {user}</h1>
+      <h1>GrandChild: </h1>
       <button onClick={dataHandler}>Set Data</button>
     </>
   );
 }
+
+export default GrandChild
